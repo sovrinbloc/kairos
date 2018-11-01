@@ -13,7 +13,6 @@ import (
 	"github.com/stripe/stripe-go/product"
 	"github.com/stripe/stripe-go/sub"
 	"io/ioutil"
-
 	"net/http"
 	"strconv"
 	"github.com/sovrinbloc/kairos/model"
