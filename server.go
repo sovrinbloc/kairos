@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"io"
-	"kairos/kairos/config"
-	"kairos/kairos/router"
 	"os"
+	"io"
+	"github.com/gin-contrib/cors"
+	"github.com/sovrinbloc/kairos/config"
+	"github.com/sovrinbloc/kairos/router"
 )
 
 func init() {

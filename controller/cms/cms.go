@@ -4,7 +4,7 @@ import (
 	"errors"
 	"github.com/gin-gonic/gin"
 	"github.com/mitchellh/mapstructure"
-	"kairos/kairos/model"
+	"github.com/sovrinbloc/kairos/model"
 )
 
 func GetPageContents(userRequestData model.RequestData, intentData map[string]interface{}) (gin.H, error) {

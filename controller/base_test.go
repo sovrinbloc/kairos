@@ -1,15 +1,15 @@
 package controller
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/stretchr/testify/assert"
-	"kairos/kairos/model"
-	"net/http"
-	"net/http/httptest"
 	"testing"
+	"github.com/gin-gonic/gin"
+	"net/http/httptest"
+	"net/http"
+	"bytes"
+	"github.com/stretchr/testify/assert"
+	"fmt"
+	"github.com/sovrinbloc/kairos/model"
+	"encoding/json"
 )
 
 func TestBase(t *testing.T) {

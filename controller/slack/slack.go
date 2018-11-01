@@ -1,18 +1,18 @@
 package slack
 
 import (
-	"bytes"
-	"encoding/json"
-	"errors"
-	"fmt"
-	"github.com/bluele/slack"
 	"github.com/gin-gonic/gin"
 	"github.com/mitchellh/mapstructure"
-	"io/ioutil"
-	"kairos/kairos/config"
-	"kairos/kairos/model"
-	"kairos/kairos/utils/openssl"
+	"fmt"
+	"github.com/sovrinbloc/kairos/model"
+	"github.com/bluele/slack"
 	"net/http"
+	"bytes"
+	"io/ioutil"
+	"github.com/sovrinbloc/kairos/utils/openssl"
+	"errors"
+	"encoding/json"
+	"github.com/sovrinbloc/kairos/config"
 )
 
 //func NewNotification() {

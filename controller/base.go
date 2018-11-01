@@ -6,13 +6,14 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
-	"kairos/kairos/config"
-	"kairos/kairos/controller/cms"
-	"kairos/kairos/controller/slack"
-	"kairos/kairos/controller/stripe"
-	"kairos/kairos/model"
+
 	"net/http"
 	"github.com/fatih/structs"
+	"github.com/sovrinbloc/kairos/model"
+	"github.com/sovrinbloc/kairos/controller/stripe"
+	"github.com/sovrinbloc/kairos/controller/slack"
+	"github.com/sovrinbloc/kairos/controller/cms"
+	"github.com/sovrinbloc/kairos/config"
 )
 
 var IntentFunctions = map[string]func(reqData model.RequestData, Intent map[string]interface{}) (gin.H, error){

@@ -13,11 +13,12 @@ import (
 	"github.com/stripe/stripe-go/product"
 	"github.com/stripe/stripe-go/sub"
 	"io/ioutil"
-	"kairos/kairos/config"
-	"kairos/kairos/model"
-	"kairos/kairos/utils/openssl"
+
 	"net/http"
 	"strconv"
+	"github.com/sovrinbloc/kairos/model"
+	"github.com/sovrinbloc/kairos/utils/openssl"
+	"github.com/sovrinbloc/kairos/config"
 )
 
 func SaveAPIKey(userRequestData model.RequestData, intentData map[string]interface{}) (gin.H, error) {
