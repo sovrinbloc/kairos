@@ -66,6 +66,7 @@ func SendMessage(userRequestData model.RequestData, intentData map[string]interf
 			return gin.H{
 				"errNo": model.ErrorCode.KairosError,
 				"msg":   "failure",
+				"error": err,
 			}, err
 		}
 
@@ -101,7 +102,6 @@ func NewNotification(notification string, channelName, token string) error {
 	fmt.Printf("channel name %s, notification %s", channelName, notification)
 	err := api.ChatPostMessage(channelName, notification, nil)
 	if err != nil {
-		panic(err.Error() + " " + token)
 		return err
 	}
 	return nil

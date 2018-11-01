@@ -89,7 +89,7 @@ func GetIntent(c *gin.Context) {
 		SendErrJson("Invalid Request Data")
 	}
 
-	const GetIntentURL = "http://localhost:8075/test/get-intent"
+	const GetIntentURL = "http://localhost:8074/test/get-intent"
 	req, err := http.NewRequest(config.Post, GetIntentURL, bytes.NewBuffer(data))
 	if err != nil {
 		SendErrJson(err.Error(), c, 401)
@@ -101,6 +101,7 @@ func GetIntent(c *gin.Context) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
+		fmt.Println("Not succeessful")
 		SendErrJson(err.Error(), c, resp.StatusCode)
 	}
 	body, _ := ioutil.ReadAll(resp.Body)

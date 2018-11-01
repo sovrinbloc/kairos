@@ -5,9 +5,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"os"
 	"io"
-	"github.com/gin-contrib/cors"
 	"github.com/sovrinbloc/kairos/config"
 	"github.com/sovrinbloc/kairos/router"
+	"github.com/gin-contrib/gzip"
 )
 
 func init() {
@@ -30,13 +30,17 @@ func main() {
 	}
 
 	// Creates a router without any middleware by default
-	app := gin.New()
+	app := gin.Default()
+	PrepareMiddleware(app)
 
 	// Global middleware
 	// Logger middleware will write the logs to gin.DefaultWriter even if you set with GIN_MODE=release.
 	// By default gin.DefaultWriter = os.Stdout
 	app.Use(gin.Logger())
-	app.Use(cors.Default())
+	//app.Use(cors.Default())
+
+
+
 
 	// Recovery middleware recovers from any panics and writes a 500 if there was one.
 	app.Use(gin.Recovery())
@@ -45,3 +49,21 @@ func main() {
 
 	app.Run(":" + fmt.Sprintf("%s", config.ServerPort))
 }
+
+func PrepareMiddleware(r *gin.Engine) {
+	r.Use(gzip.Gzip(gzip.DefaultCompression))
+	r.Use(CORSMiddleware())
+}
+
+func CORSMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Writer.Header().Set("Content-Type", "application/json")
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Max-Age", "86400")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, GET")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+		c.Writer.Header().Set("Access-Control-Expose-Headers", "Content-Length")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+	}
+}
+

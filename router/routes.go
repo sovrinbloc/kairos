@@ -7,6 +7,7 @@ import (
 	"github.com/sovrinbloc/kairos/controller/status"
 	"github.com/sovrinbloc/kairos/controller"
 	"github.com/sovrinbloc/kairos/model"
+	"fmt"
 )
 
 func Route(router *gin.Engine) {
@@ -61,7 +62,8 @@ func Route(router *gin.Engine) {
 					},
 					Data: map[string]interface{}{
 						"StripeSaveAPIKey": map[string]string{},
-						"Endpoint": "http://localhost:8075/test/success/true",
+						"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 					},
 				}
 
@@ -84,8 +86,10 @@ func Route(router *gin.Engine) {
 							1: "StripeSaveAPIKey",
 						},
 						Data: map[string]interface{}{
-							"StripeSaveAPIKey": map[string]string{},
-							"Endpoint": "http://localhost:8075/test/success/true",
+							"StripeSaveAPIKey": map[string]string{
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
+							},
 						},
 					}
 
@@ -99,9 +103,10 @@ func Route(router *gin.Engine) {
 						},
 						Data: map[string]interface{}{
 							"StripeCreateSubscription": map[string]string{
-								"plan":   "plan_123",
-								"apiKey": "sk_test_kqcgtNglf8UIlDtPs7ziTKzO",
-								"Endpoint": "http://localhost:8075/test/success/true",
+								"plan":     "plan_123",
+								"apiKey":   "sk_test_kqcgtNglf8UIlDtPs7ziTKzO",
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 							},
 						},
 					}
@@ -123,12 +128,14 @@ func Route(router *gin.Engine) {
 								"Name":        "Joseph Alai",
 								"Currency":    "usd",
 								"Description": "Something",
-								"Endpoint": "http://localhost:8075/test/success/true",
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 								"apiKey":      "sk_test_kqcgtNglf8UIlDtPs7ziTKzO",
 							}, "Slack": map[string]string{
 								"API":          "slack_ck4chs7",
 								"Notification": "Hello world!",
-								"Endpoint": "http://localhost:8075/test/success/true",
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 							},
 						},
 					}
@@ -142,10 +149,11 @@ func Route(router *gin.Engine) {
 						},
 						Data: map[string]interface{}{
 							"SlackSendNotification": map[string]string{
-								"text":    "new purchase",
-								"channel": "general",
-								"apiKey":  "xoxp-388044397831-386300920016-466668367249-aeef50807e1f333200f0e340949542e2",
-								"Endpoint": "http://localhost:8075/test/success/true",
+								"text":     "new purchase",
+								"channel":  "general",
+								"apiKey":   "xoxp-388044397831-386300920016-466668367249-aeef50807e1f333200f0e340949542e2",
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 							},
 						},
 					}
@@ -162,10 +170,11 @@ func Route(router *gin.Engine) {
 						},
 						Data: map[string]interface{}{
 							"SlackSendNotification": map[string]string{
-								"text":    "new purchase",
-								"channel": "general",
-								"apiKey":  "xoxp-388044397831-386300920016-466668367249-aeef50807e1f333200f0e340949542e2",
-								"Endpoint": "http://localhost:8075/test/success/true",
+								"text":     "new purchase",
+								"channel":  "general",
+								"apiKey":   "xoxp-388044397831-386300920016-466668367249-aeef50807e1f333200f0e340949542e2",
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 							},
 							"StripeCreateCharge": map[string]string{
 								"Email":       "josephalai@gmail.com",
@@ -175,10 +184,12 @@ func Route(router *gin.Engine) {
 								"Currency":    "usd",
 								"Description": "Something",
 								"apiKey":      "sk_test_kqcgtNglf8UIlDtPs7ziTKzO",
-								"Endpoint": "http://localhost:8075/test/success/true",
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 							},
 							"StripeSaveAPIKey": map[string]string{
-								"Endpoint": "http://localhost:8075/test/success/true",
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
+
 							},
 						},
 					}
@@ -192,6 +203,7 @@ func Route(router *gin.Engine) {
 						},
 						Data: map[string]interface{}{
 							"GetPageData": map[string]interface{}{
+								"Endpoint": fmt.Sprintf("http://localhost:%s/test/success/true", config.ServerPort),
 								"pageData": map[string]interface{}{
 									"h1": "Hello",
 									"h2": "World",
