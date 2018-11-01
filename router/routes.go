@@ -2,10 +2,11 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"kairos/kairos/config"
-	"kairos/kairos/controller"
-	"kairos/kairos/controller/status"
-	"kairos/kairos/model"
+
+	"github.com/sovrinbloc/kairos/config"
+	"github.com/sovrinbloc/kairos/controller/status"
+	"github.com/sovrinbloc/kairos/controller"
+	"github.com/sovrinbloc/kairos/model"
 )
 
 func Route(router *gin.Engine) {

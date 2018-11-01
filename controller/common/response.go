@@ -2,8 +2,8 @@ package common
 
 import (
 	"github.com/gin-gonic/gin"
-	"kairos/kairos/model"
 	"net/http"
+	"github.com/sovrinbloc/kairos/model"
 )
 
 // SendErrJSON
