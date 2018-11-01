@@ -43,5 +43,5 @@ func main() {
 
 	router.Route(app)
 
-	app.Run("127.0.0.1:" + fmt.Sprintf("%s", config.ServerPort))
+	app.Run(":" + fmt.Sprintf("%s", config.ServerPort))
 }
